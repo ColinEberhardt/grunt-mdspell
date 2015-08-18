@@ -1,0 +1,26 @@
+{
+  "name": "grunt-mdspell",
+  "description": "Spell check your markdown files",
+  "version": "0.1.0",
+  "homepage": "https://github.com/colineberhardt/grunt-mdspell",
+  "author": {
+    "name": "Colin Eberhardt",
+    "email": "colin.eberhardt@gmail.com"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "dependencies": {
+    "async": "^1.4.2",
+    "markdown-spellcheck": "^0.2.0"
+  }
+}
