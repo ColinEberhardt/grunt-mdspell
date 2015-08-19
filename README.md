@@ -2,6 +2,23 @@
 
 > Spell check your markdown files
 
+This plugin runs a spell-checker against the markdown files within your project, reporting any errors that it finds. It's a useful addition to any project that has a lot of documentation, or markdown-based blogs. Here's an example of the output:
+
+```
+Running "mdspell:main" (mdspell) task
+    overview.md
+        7 | to enforce your team’s coding convntions. It is 
+    foo/bar.md
+        3 | Monkey-patch (hook) functins for debugging and stuff. 
+        7 | This code should wrk just fine: 
+>> 3 spelling errors found in 2 files
+Warning: Task "mdspell:main" failed. Use --force to continue.
+
+Aborted due to warnings.
+```
+
+You can provide a `.spelling` file that contains global or file-specific words that should be ignored. Probably the easiest way to create this file is via the interactive [`mdspell`](https://github.com/lukeapage/node-markdown-spellcheck) tool which this grunt task is built on.
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -37,53 +54,48 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.ignoreAcronyms
+Type: `Boolean`
+Default value: `false`
 
-A string value that is used to do something with whatever.
+Ignores acronyms when spell checking.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.ignoreNumbers
+Type: `Boolean`
+Default value: `false`
 
-A string value that is used to do something else with whatever else.
+Ignores numbers such as `22nd`, `31st` - numbers without suffix, e.g. `345`, are always ignored.
 
-### Usage Examples
+### Usage Example
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  mdspell: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, a number of markdown files are spell checked with both acronyms and numbers ignored.
 
 ```js
 grunt.initConfig({
   mdspell: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      ignoreAcronyms: true,
+      ignoreNumbers: true
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      src: ['**/*.md']
     },
   },
 });
 ```
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+When spelling errors are found, they are reported as follows:
 
-## Release History
-_(Nothing yet)_
+```
+Running "mdspell:main" (mdspell) task
+    test/fixtures/foo.md
+        7 | to enforce your team’s coding convntions. It is 
+    test/fixtures/sub-folder/bar.md
+        3 | Monkey-patch (hook) functins for debugging and stuff. 
+        7 | This code should wrk just fine: 
+>> 3 spelling errors found in 2 files
+Warning: Task "mdspell:main" failed. Use --force to continue.
+
+Aborted due to warnings.
+```
+

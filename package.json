@@ -1,6 +1,6 @@
 {
   "name": "grunt-mdspell",
-  "description": "Spell check your markdown files",
+  "description": "A grunt task for mdspell - spell check your markdown files as part of your build",
   "version": "0.1.0",
   "homepage": "https://github.com/colineberhardt/grunt-mdspell",
   "author": {
@@ -12,8 +12,6 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5"
   },
   "peerDependencies": {
@@ -21,6 +19,9 @@
   },
   "dependencies": {
     "async": "^1.4.2",
-    "markdown-spellcheck": "lukeapage/node-markdown-spellcheck#421784d6bda722080d20c56b878190eb047745e2"
+    "markdown-spellcheck": "ColinEberhardt/node-markdown-spellcheck#ec41e212412110058472836bc105c1d861e866b9"
+  },
+  "scripts": {
+    "test": "grunt"
   }
 }
