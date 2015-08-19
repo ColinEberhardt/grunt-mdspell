@@ -1,7 +1,7 @@
 {
   "name": "grunt-mdspell",
   "description": "A grunt task for mdspell - spell check your markdown files as part of your build",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/colineberhardt/grunt-mdspell",
   "author": {
     "name": "Colin Eberhardt",
