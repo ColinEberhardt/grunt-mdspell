@@ -5,3 +5,12 @@ sudo: false
 
 before_install: npm install -g grunt-cli
 install: npm install
+
+deploy:
+  provider: npm
+  email: ceberhardt@scottlogic.com
+  api_key:
+    secure: "cGV2UovsY4SD0ioH7RlCJqLqop+6I5Af2l0ntWAJpbBhbvGDOwI7P810a9aXmgRNViknqfYmbKlHr4TO0l3m0n4KDu0uXu0vcG9CPpJTyr275Vl49jredQ4UvIrhFIHGuUnGoduPPHcdcSJaJfJ6fCKKCQzORE+GYwwVMR/A5wSbc7o8zyst0Qm2DpHstFdoIt6Tim0mJnm7grEitYTGxlE2wPWYbufpMKqP+Vjdv/tU0aIVOsy+8ooTnHWyDINdfY3HHaHwwfVb3xZh8Exg6cewl0+HSUC0hieU5CCed6nvoo88Z/tOaW19gr9Ufes+y4ZXrZGGZ7zFyV+TNpQnBoN5TvtE+ZmbqNr640h0r/LdftmNzxxE8sbVXCic7SmkmiidCa4ZDcl+rXX+bo/ijKutsVB/nMCHHwRPEvSk7HAkx7WveRut9Z8CdRgj+bMDN1uZwZ+sJ7NmolPrOahxdFKhkriKojWH7mGuNivfIBTw2QknwLy/nO3OtxQvvxqtr1PbujkS4QhZZ0G84h4CJ4AlpJOwUsYuvGspgCmy1ca/eJkrD4VORaiLqqxu6A75jsj5zLTRYXQuuRSfzhexoauaUznuWTRrdk7qXrXgKXjPGCVGRo2M6a1hFP5oRCLWe7362eEiGQZudVkbElV3XQZoBr8xH6MXrbjyITx9p5I="
+  on:
+    tags: true
+    branch: master
