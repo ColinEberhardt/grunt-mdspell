@@ -31,20 +31,18 @@ module.exports = function(grunt) {
         return true;
       });
 
-      var allErrors = [];
-      files.forEach(function(filename) {
+      async.mapSeries(files, function(filename, callback) {
         var result = spellFile(filename);
-
         if (result.errors.length > 0) {
           grunt.log.write(generateFileReport(filename, result));
         }
-        allErrors.push(result.errors);
+        callback(null, result.errors);
+      }, function(e, allErrors) {
+        grunt.log.write(generateSummaryReport(allErrors) + '\n');
+        var errorCount = allErrors.map(function(e) { return e && e.length ? e.length : 0; })
+                              .reduce(function(p, c) { return p + c; }, 0);
+        done(errorCount === 0);
       });
-
-      grunt.log.write(generateSummaryReport(allErrors) + '\n');
-      var errorCount = allErrors.map(function(e) { return e && e.length ? e.length : 0; })
-                            .reduce(function(p, c) { return p + c; }, 0);
-      done(errorCount === 0);
     });
   });
 
