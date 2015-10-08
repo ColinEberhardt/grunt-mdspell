@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "async": "^1.4.2",
+    "chalk": "^1.1.1",
     "markdown-spellcheck": "^0.6.2"
   },
   "scripts": {
