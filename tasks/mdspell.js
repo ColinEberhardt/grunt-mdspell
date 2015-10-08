@@ -11,7 +11,7 @@ var spellFile = require('markdown-spellcheck').spellFile;
 var spellcheck = require('markdown-spellcheck').spellcheck;
 var generateSummaryReport = require('markdown-spellcheck').generateSummaryReport;
 var generateFileReport = require('markdown-spellcheck').generateFileReport;
-var spellConfig = require('markdown-spellcheck').spellConfig;
+var spellConfig = require('markdown-spellcheck/es5/spell-config');
 var chalk = require('chalk');
 
 module.exports = function(grunt) {

@@ -22,15 +22,27 @@ module.exports = function(grunt) {
       }
     },
 
-    // Configuration to be run (and then tested).
+    nodeunit: {
+      all: [
+        'test/mdspell_test.js'
+      ]
+    },
+
     mdspell: {
-      main: {
+      success: {
         files: {
-          src: ['test/fixtures/**/*.md']
+          src: ['test/fixtures/noErrors.md']
+        }
+      },
+      spellingError: {
+        files: {
+          src: ['test/fixtures/spellingError.md']
         }
       },
       noError: {
         options: {
+          ignoreAcronyms: true,
+          ignoreNumbers: true
         },
         files: {
           src: ['test/fixtures/*.md']
@@ -44,8 +56,9 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'nodeunit:all']);
 
 };

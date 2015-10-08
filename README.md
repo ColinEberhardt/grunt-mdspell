@@ -1,5 +1,7 @@
 # grunt-mdspell
 
+![build status](https://travis-ci.org/ColinEberhardt/grunt-mdspell.svg)
+
 > Spell check your markdown files
 
 This plugin runs a spell-checker against the markdown files within your project, reporting any errors that it finds. It's a useful addition to any project that has a lot of documentation, or markdown-based blogs. Here's an example of the output:
@@ -7,10 +9,10 @@ This plugin runs a spell-checker against the markdown files within your project,
 ```
 Running "mdspell:main" (mdspell) task
     overview.md
-        7 | to enforce your team’s coding convntions. It is 
+        7 | to enforce your team’s coding convntions. It is
     foo/bar.md
-        3 | Monkey-patch (hook) functins for debugging and stuff. 
-        7 | This code should wrk just fine: 
+        3 | Monkey-patch (hook) functins for debugging and stuff.
+        7 | This code should wrk just fine:
 >> 3 spelling errors found in 2 files
 Warning: Task "mdspell:main" failed. Use --force to continue.
 
@@ -89,13 +91,12 @@ When spelling errors are found, they are reported as follows:
 ```
 Running "mdspell:main" (mdspell) task
     test/fixtures/foo.md
-        7 | to enforce your team’s coding convntions. It is 
+        7 | to enforce your team’s coding convntions. It is
     test/fixtures/sub-folder/bar.md
-        3 | Monkey-patch (hook) functins for debugging and stuff. 
-        7 | This code should wrk just fine: 
+        3 | Monkey-patch (hook) functins for debugging and stuff.
+        7 | This code should wrk just fine:
 >> 3 spelling errors found in 2 files
 Warning: Task "mdspell:main" failed. Use --force to continue.
 
 Aborted due to warnings.
 ```
-
